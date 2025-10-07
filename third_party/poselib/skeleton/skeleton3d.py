@@ -638,10 +638,15 @@ class SkeletonState(Serializable):
         num_joints = len(joint_names)
         data = []
 
+        # deal with optitrack naming conventions where it prepends every joint with Skeleton_ or the avatar name
+        # don't typically have this issue with XSens data
+        if('_' in joint_names[0]):
+            joint_names = [x.split('_')[1] for x in joint_names]
+
         for frame in range(num_frames):
             motion = {}
             for i in range(num_joints):
-                motion[joint_names[i].split('_')[1]] = [
+                motion[joint_names[i]] = [
                     global_positions[frame, i].tolist(),
                     global_quaternions[frame, i, [3, 0, 1, 2]].tolist()
                 ]
