@@ -39,7 +39,8 @@ ehthumbs.db
 Thumbs.db
 
 # Data directories
-data/
+*.pkl
+*.fbx
 data_record/
 Download/
 assets/body_models/
