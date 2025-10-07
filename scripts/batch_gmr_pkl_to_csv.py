@@ -21,6 +21,16 @@ if __name__ == "__main__":
         else:
             continue
 
+        # Skip if motion_data is not a dict (e.g., intermediate files)
+        if not isinstance(motion_data, dict):
+            print(f"Skipping {file} (not a dict format)")
+            continue
+
+        # Skip if required keys are missing
+        if "dof_pos" not in motion_data:
+            print(f"Skipping {file} (missing required keys)")
+            continue
+
         dof_pos = motion_data["dof_pos"]
         frame_rate = motion_data["fps"]            
         motion = np.zeros((dof_pos.shape[0], dof_pos.shape[1] + 7), dtype=np.float32)
