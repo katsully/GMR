@@ -14,7 +14,7 @@ mesh_path = "assets/unitree_g1"
 video_output_path = f"videos/{file_name}_robot.mp4"
 max_video_duration = 10.0  # seconds
 
-CONVERT_FBX = False
+CONVERT_FBX = True
 
 if CONVERT_FBX:
     # Step 1: Process FBX file (run this with fbx_sdk environment)
