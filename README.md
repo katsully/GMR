@@ -329,6 +329,17 @@ If you want to record video, add `--record_video` and `--video_path <your_video_
 | TBD | TBD |
 
 
+# Notes
+- look at config files
+
+[
+    "HumanBodyName",  // Which human body part to track
+    position_weight,   // How important is matching the position (0-100)
+    rotation_weight,   // How important is matching the rotation (0-100)
+    [x, y, z],        // Position offset
+    [w, x, y, z]      // Rotation offset (quaternion)
+]
+
 # Citation
 
 If you find our code useful, please consider citing our related papers:

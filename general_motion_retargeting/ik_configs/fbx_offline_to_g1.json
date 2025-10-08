@@ -233,7 +233,7 @@
         "right_wrist_yaw_link": [
             "RightHand",
             0,
-            10,
+            3,
             [
                 0.0,
                 0.0,
@@ -459,7 +459,7 @@
         "right_wrist_yaw_link": [
             "RightHand",
             10,
-            5,
+            2,
             [
                 0.0,
                 0.0,
