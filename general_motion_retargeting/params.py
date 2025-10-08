@@ -58,6 +58,9 @@ IK_CONFIG_DICT = {
     "fbx_offline":{
         "unitree_g1": IK_CONFIG_ROOT / "fbx_offline_to_g1.json",
     },
+    "xsens":{
+        "unitree_g1": IK_CONFIG_ROOT / "xsens_to_g1.json"
+    }
 }
 
 
