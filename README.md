@@ -330,7 +330,7 @@ If you want to record video, add `--record_video` and `--video_path <your_video_
 
 
 # Notes
-- look at config files
+- look at config files for ik rig solver
 
 [
     "HumanBodyName",  // Which human body part to track

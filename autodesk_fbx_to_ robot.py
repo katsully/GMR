@@ -37,5 +37,5 @@ subprocess.run(f"conda activate g1_env && python scripts/batch_gmr_pkl_to_csv.py
 
 
 # print("\nStep 3: Visualising robot motion...")
-# subprocess.run(f"conda activate g1_env && python scripts/vis_robot_motion.py --robot {robot} --robot_motion_path {output_path} --record_video --video_path {video_output_path} --max_duration {max_video_duration}", shell=True, check=True)
+subprocess.run(f"conda activate g1_env && python scripts/vis_robot_motion.py --robot {robot} --robot_motion_path {output_path} --record_video --video_path {video_output_path} --max_duration {max_video_duration}", shell=True, check=True)
     
