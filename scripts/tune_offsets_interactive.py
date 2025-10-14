@@ -177,7 +177,25 @@ class InteractiveOffsetTuner:
         with open(self.motion_file, "rb") as f:
             motion_data = pickle.load(f)
 
-        self.first_frame = motion_data[0]
+        # Handle both dict and list formats
+        if isinstance(motion_data, dict):
+            # Dict format: single frame or metadata structure
+            # Try to find the frame data
+            if "human_motion" in motion_data:
+                # Format: {"human_motion": [...frames...], "robot_motion": ...}
+                if len(motion_data["human_motion"]) == 0:
+                    raise ValueError("Motion data is empty (no frames)")
+                self.first_frame = motion_data["human_motion"][0]
+            else:
+                # Assume dict itself is the first frame
+                self.first_frame = motion_data
+        elif isinstance(motion_data, list):
+            # List format: [frame1, frame2, ...]
+            if len(motion_data) == 0:
+                raise ValueError("Motion data is empty (no frames)")
+            self.first_frame = motion_data[0]
+        else:
+            raise ValueError(f"Expected motion_data to be a list or dict, got {type(motion_data)}")
 
         # Convert list format to tuple format: {"body_name": [pos, quat]} -> {"body_name": (pos, quat)}
         self.human_data = {}
@@ -345,7 +363,7 @@ def main():
     parser.add_argument(
         "--motion_file",
         type=str,
-        default="data/Z_Solo_Best_robot_inter.pkl",
+        default="data/Bajo-001_robot.pkl",
         help="FBX motion file (pickle) to load first frame from (use _inter.pkl files)"
     )
     parser.add_argument(
