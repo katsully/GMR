@@ -40,4 +40,16 @@ def main():
     print(f"Successfully converted '{args.input}' to '{args.output}'")
 
 if __name__ == "__main__":
+    # Debug args from autodesk_fbx_to_robot.py
+    import sys
+    if len(sys.argv) == 1:  # No command line args provided, use defaults for debugging
+        file_name = "Bajo-001"
+        # file_name = "Z_Solo_Best"
+        sys.argv = [
+            sys.argv[0],
+            '--input', f'./data/{file_name}.fbx',
+            '--output', f'./data/{file_name}_robot_inter.pkl',
+            '--root-joint', 'Hips',
+            '--fps', '30'
+        ]
     main()

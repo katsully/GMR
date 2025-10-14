@@ -641,10 +641,17 @@ class SkeletonState(Serializable):
         for frame in range(num_frames):
             motion = {}
             for i in range(num_joints):
-                motion[joint_names[i].split('_')[1]] = [
-                    global_positions[frame, i].tolist(),
-                    global_quaternions[frame, i, [3, 0, 1, 2]].tolist()
-                ]
+                try:
+                    motion[joint_names[i].split('_')[1]] = [
+                        global_positions[frame, i].tolist(),
+                        global_quaternions[frame, i, [3, 0, 1, 2]].tolist()
+                    ]
+                except IndexError:
+                    motion[joint_names[i]] = [
+                        global_positions[frame, i].tolist(),
+                        global_quaternions[frame, i, [3, 0, 1, 2]].tolist()
+                    ]
+                    
             data.append(motion)
 
         with open(path, "wb") as f:

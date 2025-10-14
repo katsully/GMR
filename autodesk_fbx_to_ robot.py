@@ -1,7 +1,8 @@
 
 import subprocess
 
-file_name = "Z_Solo_Best"
+# file_name = "Z_Solo_Best"
+file_name = "Bajo-001"
 fbx_path=f"./data/{file_name}.fbx"
 inter_path = f"./data/{file_name}_robot_inter.pkl"
 output_path=f"./data/{file_name}_robot.pkl"
