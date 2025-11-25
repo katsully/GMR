@@ -96,7 +96,7 @@ if __name__ == "__main__":
     height_offset = offset_to_ground(retargeter, data_frames)
     retargeter.set_ground_offset(height_offset)
 
-    motion_fps = 120
+    motion_fps = 30
     
     robot_motion_viewer = RobotMotionViewer(robot_type=args.robot,
                                             motion_fps=motion_fps,
