@@ -60,6 +60,9 @@ IK_CONFIG_DICT = {
     },
     "xsens":{
         "unitree_g1": IK_CONFIG_ROOT / "xsens_to_g1.json"
+    },
+    "xsens_bvh": {
+        "unitree_g1": IK_CONFIG_ROOT / "xsens_bvh_to_g1.json"
     }
 }
 
